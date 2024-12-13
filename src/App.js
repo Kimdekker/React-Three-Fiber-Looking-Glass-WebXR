@@ -70,17 +70,25 @@
 import { Canvas } from '@react-three/fiber'
 import { XR, createXRStore } from '@react-three/xr'
 import { useState } from 'react'
+import { LookingGlassWebXRPolyfill, LookingGlassConfig } from "@lookingglass/webxr"
+const config = LookingGlassConfig
+config.targetY = 0
+config.targetZ = 0
+config.targetDiam = 3
+config.fovy = (40 * Math.PI) / 180
+new LookingGlassWebXRPolyfill()
 
 const store = createXRStore()
 
-export function App() {
+export default function App() {
   const [red, setRed] = useState(false)
+
   return (
     <>
-      <button onClick={() => store.enterAR()}>Enter AR</button>
+      <button onClick={() => store.enterAR()}>Enter VR</button>
       <Canvas>
         <XR store={store}>
-          <mesh pointerEventsType={{ deny: 'grab' }} onClick={() => setRed(!red)} position={[0, 1, -1]}>
+          <mesh onClick={() => setRed(!red)} position={[0, 1, -1]}>
             <boxGeometry />
             <meshBasicMaterial color={red ? 'red' : 'blue'} />
           </mesh>

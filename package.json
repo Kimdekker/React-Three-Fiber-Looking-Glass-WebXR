@@ -13,8 +13,8 @@
     "@splinetool/loader": "0.9.123",
     "@splinetool/r3f-spline": "1.0.2",
     "@types/three": "0.143.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.0.0",  
+    "react-dom": "^18.0.0",
     "react-scripts": "5.0.1",
     "three": "^0.144.0",
     "zustand": "^4.5.2"
